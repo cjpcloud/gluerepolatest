@@ -1,4 +1,9 @@
-# Crawler resource policies:
+provider "aws" {
+
+ region = "us-east-1"
+}
+
+#Crawler resource policies:
 
 # Crawler IAM role
 resource "aws_iam_role" "crawler_iam_role" {
