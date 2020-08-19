@@ -26,17 +26,17 @@ resource "aws_iam_role_policy_attachment" "crawler_attach" {
 
 # Glue Database
 resource "aws_glue_catalog_database" "catalog_database" {
-    name = "${var.glue_db_name}"
+    name = "${glue_db_name}"
 }
 
 # Crawler
 resource "aws_glue_crawler" "datalake_crawler" {
-    database_name = "${var.glue_db_name}"
-    name          = "${var.crawler_name}"
+    database_name = "${glue_db_name}"
+    name          = "${crawler_name}"
     role          = "${aws_iam_role.crawler_iam_role.name}"
-    description   = "${var.crawler_description}"
-    table_prefix  = "${var.table_prefix}"
-    schedule      = "${var.schedule}" 
+    description   = "${crawler_description}"
+    table_prefix  = "${table_prefix}"
+    schedule      = "${schedule}" 
 
     s3_target {
       path = "s3://athenademo12/"
