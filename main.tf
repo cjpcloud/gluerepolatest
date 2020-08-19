@@ -50,7 +50,7 @@ resource "aws_glue_crawler" "datalake_crawler" {
 
 resource "aws_glue_catalog_table" "aws_glue_catalog_table" {
   name          = "your_table_name"
-  database_name = "${var.glue_db_name}"
+  database_name = "${glue_db_name}"
   table_type    = "EXTERNAL_TABLE"
 
   parameters = {
